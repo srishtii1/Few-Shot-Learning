@@ -10,7 +10,7 @@ import numpy as np
 from torch.optim.lr_scheduler import MultiStepLR
 
 from easyfsl.samplers import TaskSampler
-from easyfsl.utils import plot_images, sliding_average
+from easyfsl.utils import sliding_average
 
 from torch.utils.data import DataLoader
 from torchvision.datasets import Flowers102
@@ -254,7 +254,7 @@ Here, we use as backbone a ResNet50 pretrained on ImageNet, with its head choppe
 layer. The output of the backbone, for an input image, will be a 512-dimensional feature vector.
 """
 convolutional_network = resnet50(pretrained=False)
-convolutional_network.load_state_dict(torch.load("/home/UG/srishti003/org_transfer.h5"))
+convolutional_network.load_state_dict(torch.load("org_transfer.h5"))
 convolutional_network.fc = nn.Flatten()
 print(convolutional_network)
 
@@ -509,7 +509,7 @@ plt.ylabel('Accuracy', fontsize=14)
 plt.xticks([i for i in range(1, n_epochs + 1,5)])
 plt.legend(['Validation', 'Train'])
 plt.grid(True)
-plt.savefig(f'/home/UG/srishti003/accuracy.png')
+plt.savefig(f'accuracy.png')
 
 """Plot Loss"""
 plt.figure()
@@ -521,5 +521,5 @@ plt.ylabel('Loss', fontsize=14)
 plt.xticks([i for i in range(1, n_epochs + 1,5)])
 plt.legend(['Validation', 'Train'])
 plt.grid(True)
-plt.savefig(f'/home/UG/srishti003/loss.png')
+plt.savefig(f'loss.png')
 
