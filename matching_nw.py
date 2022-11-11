@@ -254,7 +254,7 @@ Here, we use as backbone a ResNet50 pretrained on ImageNet, with its head choppe
 layer. The output of the backbone, for an input image, will be a 512-dimensional feature vector.
 """
 convolutional_network = resnet50(pretrained=False)
-convolutional_network.load_state_dict(torch.load("org_transfer.h5"))
+convolutional_network.load_state_dict(torch.load("models/org_transfer.h5"))
 convolutional_network.fc = nn.Flatten()
 print(convolutional_network)
 
