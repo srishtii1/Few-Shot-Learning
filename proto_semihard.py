@@ -2,7 +2,7 @@ import os
 
 path = "models/"
 resnet_ft = os.path.join(path, "model_ft")
-resnet50_ft = os.path.join(path, "transfer.h5")
+resnet50_ft = os.path.join(path, "org_transfer.h5")
 print(resnet50_ft)
 
 import torch
